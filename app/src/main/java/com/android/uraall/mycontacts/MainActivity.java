@@ -1,9 +1,11 @@
 package com.android.uraall.mycontacts;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import com.android.uraall.mycontacts.databinding.ActivityMainBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -11,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Contact> contactArrayList = new ArrayList<>();
     private ContactAdapter contactAdapter;
 
+    private ActivityMainBinding activityMainBinding;
+    private MainActivityButtonHandler buttonHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +46,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        activityMainBinding = DataBindingUtil.setContentView(this,
+                R.layout.activity_main);
+        buttonHandler = new MainActivityButtonHandler(this);
+        activityMainBinding.setButtonHandler(buttonHandler);
+
+
+        RecyclerView recyclerView = activityMainBinding.layoutContentMain.recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
@@ -69,13 +81,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addAndEditContact(false, null, -1);
-            }
-        });
+//        FloatingActionButton fab = findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                addAndEditContact(false, null, -1);
+//            }
+//        });
     }
 
     public void addAndEditContact(final boolean isUpdate, final Contact contact,
@@ -299,4 +311,18 @@ public class MainActivity extends AppCompatActivity {
             loadContacts();
         }
     }
+
+    public class MainActivityButtonHandler {
+
+        Context context;
+
+        public MainActivityButtonHandler(Context context) {
+            this.context = context;
+        }
+
+        public void onButtonClicked(View view) {
+            addAndEditContact(false, null, -1);
+        }
+    }
+
 }
