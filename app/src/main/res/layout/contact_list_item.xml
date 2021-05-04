@@ -6,7 +6,7 @@
 
         <variable
             name="contact"
-            type="com.android.uraall.mycontacts.Contact" />
+            type="com.android.sergeiekgaus.myFriendList.Contact" />
 
     </data>
 

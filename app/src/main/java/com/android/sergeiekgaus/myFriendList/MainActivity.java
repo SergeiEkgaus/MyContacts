@@ -1,13 +1,21 @@
-package com.android.uraall.mycontacts;
+package com.android.sergeiekgaus.myFriendList;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.android.uraall.mycontacts.databinding.ActivityMainBinding;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.android.sergeiekgaus.myFriendList.databinding.ActivityMainBinding;
+
+import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -19,16 +27,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -90,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
     }
 
-    public void addAndEditContact(final boolean isUpdate, final Contact contact,
+    public void addAndEditContact(final boolean  isUpdate, final Contact contact,
                                   final int position) {
 
         LayoutInflater layoutInflater = LayoutInflater

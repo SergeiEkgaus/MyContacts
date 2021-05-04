@@ -1,4 +1,4 @@
-package com.android.uraall.mycontacts;
+package com.android.sergeiekgaus.myFriendList;
 
 import org.junit.Test;
 

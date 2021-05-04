@@ -1,11 +1,11 @@
-package com.android.uraall.mycontacts;
+package com.android.sergeiekgaus.myFriendList;
 
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "contacts_table")
-public class Contact {
+public class  Contact {
 
     @PrimaryKey(autoGenerate = true)
     private long contactId;

@@ -1,4 +1,4 @@
-package com.android.uraall.mycontacts;
+package com.android.sergeiekgaus.myFriendList;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;

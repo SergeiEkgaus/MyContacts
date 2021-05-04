@@ -1,4 +1,4 @@
-package com.android.uraall.mycontacts;
+package com.android.sergeiekgaus.myFriendList;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -25,5 +25,6 @@ public interface ContactDao {
 
     @Delete
     void deleteContact(Contact contact);
+
 
 }
